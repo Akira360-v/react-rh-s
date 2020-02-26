@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const SettingsItem = (props) => {
+  // props
   let path = "/settings/" + props.id;
 
   return (

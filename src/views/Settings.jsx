@@ -2,6 +2,7 @@ import React from 'react'
 import SettingsItem from '../components/blocks/Settings/SettingsItem'
 
 const Settings = props => {
+  // props
   let SettingsItemElements = props.state.dialogs.map(d => (
     <SettingsItem name={d.name} id={d.id} />
   ))

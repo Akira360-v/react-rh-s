@@ -11,7 +11,7 @@ import Statistics from './views/Statistics'
 import Settings from './views/Settings'
 // views //
 // Route
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 // Route //
 // css
 import './assets/sass/index.sass'
@@ -21,7 +21,6 @@ import './App.css'
 const App = props => {
   // debugger;
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
         <Sidebar />
         <div className="app-wrappers">
@@ -41,7 +40,6 @@ const App = props => {
           </div>
         </div>
       </div>
-    </BrowserRouter>
   )
 }
 
