@@ -19,6 +19,7 @@ import './App.css'
 // css //
 
 const App = props => {
+  // debugger;
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -26,10 +27,13 @@ const App = props => {
         <div className="app-wrappers">
           <Navbar />
           <div className="app-wrapper-content">
-            <Route path="/Employees" render={() => <Employees />} />
-            <Route path="/Equipment" render={() => <Equipment />} />
-            <Route path="/Statistics" render={() => <Statistics />} />
-            <Route path="/Settings" render={() => <Settings />} />
+            <Route path="/employees" render={() => <Employees />} />
+            <Route path="/equipment" render={() => <Equipment />} />
+            <Route path="/statistics" render={() => <Statistics />} />
+            <Route
+              path="/settings"
+              render={() => <Settings state={props.state.SettingsPage} />}
+            />
             <Route
               path="/dialogs"
               render={() => <Dialogs state={props.state.dialogsPage} />}
