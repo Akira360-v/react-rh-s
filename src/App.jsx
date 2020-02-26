@@ -2,7 +2,7 @@ import React from 'react'
 // components app
 import Navbar from './components/app/Navbar'
 import Sidebar from './components/app/Sidebar'
-import Dialogs from './components/Dialogs/Dialogs.jsx'
+import Dialogs from './components/exemple/Dialogs/Dialogs'
 // components app //
 // views
 import Employees from './views/Employees'
