@@ -3,6 +3,7 @@ import React from 'react'
 import Sidebar from './components/app/sidebar/Sidebar'
 import Navbar from './components/app/navbar/Navbar'
 import Dialogs from './components/exemple/Dialogs/Dialogs'
+import Profile from './components/exemple/Profile/Profile'
 // components app //
 // views
 import Employees from './views/Employees'
@@ -37,6 +38,10 @@ const App = props => {
               path="/dialogs"
               render={() => <Dialogs state={props.state.dialogsPage} />}
             />
+            <Route path='/profile'
+              render={ () => <Profile
+              state={props.state.profilePage}
+              addPost={props.addPost} /> }/>
           </div>
         </div>
       </div>

@@ -12,6 +12,8 @@ const Navbar = () => {
         <NavMenu url="/statistics" name="Statistics" />
         <NavMenu url="/settings" name="Settings" />
         <NavMenu url="/dialogs" name="dialogs" />
+        <NavMenu url="/profile" name="profile" />
+
       </nav>
     </div>
   )
