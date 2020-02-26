@@ -4,8 +4,8 @@ import React from 'react'
 const Equipment = (props) => {
   return (
     <div>
-      <h1>{props.name}</h1>
-      <h2>{props.names}</h2>
+      <h1>asasas</h1>
+      <h2>qwqw</h2>
       Equipment
     </div>
   )

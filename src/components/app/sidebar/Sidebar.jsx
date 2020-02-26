@@ -1,11 +1,11 @@
 import React from 'react'
-import Logo from './Logo'
+import Logo from './SidebarLogo'
 
-const Navbar = () => {
+const Sidebar = () => {
   return (
-    <div className="Navbar">
+    <div className="Sidebar">
       <div className="container">
-        <div className="navbar">
+        <div className="sidebar">
           <Logo />
           <p>imput</p>
         </div>
@@ -14,4 +14,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Sidebar

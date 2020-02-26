@@ -2,11 +2,11 @@ import React from 'react'
 
 const Uzers = () => {
   return (
-    <div className="Uzers">
-      <figure className='uzer__img'>
+    <div className="SidebarUzer">
+      <figure className='SidebarUzer__img'>
         <img src="" alt="uzer" />
       </figure>
-      <div className="uzer__name">uzer name</div>
+      <div className="SidebarUzer__name">uzer name</div>
     </div>
   )
 }

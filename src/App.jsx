@@ -1,8 +1,8 @@
 import React from 'react'
 // components app
-import Navbar from './components/app/Navbar'
-import Sidebar from './components/app/Sidebar'
-import Dialogs from './components/Dialogs/Dialogs.jsx'
+import Sidebar from './components/app/sidebar/Sidebar'
+import Navbar from './components/app/navbar/Navbar'
+import Dialogs from './components/exemple/Dialogs/Dialogs'
 // components app //
 // views
 import Employees from './views/Employees'
@@ -11,30 +11,35 @@ import Statistics from './views/Statistics'
 import Settings from './views/Settings'
 // views //
 // Route
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 // Route //
 // css
 import './assets/sass/index.sass'
 import './App.css'
 // css //
 
-const App = (props) => {
+const App = props => {
+  // debugger;
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
-        <Navbar />
+        <Sidebar />
         <div className="app-wrappers">
-          <Sidebar />
+          <Navbar />
           <div className="app-wrapper-content">
-            <Route path="/Employees" render={() => <Employees />} />
-            <Route path="/Equipment" render={() => <Equipment />} />
-            <Route path="/Statistics" render={() => <Statistics />} />
-            <Route path="/Settings" render={() => <Settings />} />
-            <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage} />} />
+            <Route path="/employees" render={() => <Employees />} />
+            <Route path="/equipment" render={() => <Equipment />} />
+            <Route path="/statistics" render={() => <Statistics />} />
+            <Route
+              path="/settings"
+              render={() => <Settings state={props.state.SettingsPage} />}
+            />
+            <Route
+              path="/dialogs"
+              render={() => <Dialogs state={props.state.dialogsPage} />}
+            />
           </div>
         </div>
       </div>
-    </BrowserRouter>
   )
 }
 

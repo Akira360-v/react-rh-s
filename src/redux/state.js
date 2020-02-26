@@ -24,7 +24,25 @@ let state = {
             {id: 5, message: 'Yo'}
         ]
     },
+    SettingsPage: {
+        dialogs: [
+            {id: 1, name: 'Dimyasdasdasdasch'},
+            {id: 2, name: 'Andasdasdasdasrew'},
+            {id: 3, name: 'Svasdasdasdaeta'},
+            {id: 4, name: 'Saasdasdasdasdsha'},
+            {id: 5, name: 'Viasdasdasdasdktor'},
+            {id: 6, name: 'Valasdasdasdera'}
+        ],
+        messages: [
+            {id: 1, message: 'Hi'},
+            {id: 2, message: 'How is your it-kamasutra?'},
+            {id: 3, message: 'Yo'},
+            {id: 4, message: 'Yo'},
+            {id: 5, message: 'Yo'}
+        ]
+    },
     sidebar: {}
+    
 }
 
 export default state;

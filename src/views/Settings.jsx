@@ -1,23 +1,14 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import SettingsItem from '../components/blocks/Settings/SettingsItem'
 
-const SettingsItem = props => {
-  return (
-    <div className="SettingsItem">
-      <NavLink to={"/Settings/" + props.id}>{props.name}</NavLink>
-    </div>
-  )
-}
+const Settings = props => {
+  // props
+  let SettingsItemElements = props.state.dialogs.map(d => (
+    <SettingsItem name={d.name} id={d.id} />
+  ))
+  // let messagesElements = props.state.messages.map( m => <Message message={m.message}/> );
 
-const Settings = () => {
-  return (
-    <ul className="Settings">
-      <SettingsItem id='1' name='SettingsItem(1)' />
-      <SettingsItem id='2' name='SettingsItem(2)'  />
-      <SettingsItem id='3' name='SettingsItem(3)'  />
-      <SettingsItem id='4' name='SettingsItem(4)'  />
-    </ul>
-  )
+  return <div className="Settings">{SettingsItemElements}</div>
 }
 
 export default Settings

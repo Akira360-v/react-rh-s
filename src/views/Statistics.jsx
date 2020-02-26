@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import MessagesExemple from '../components/exemple/MessagesExemple'
+// import MessagesExemple from '../components/exemple/MessagesExemple'
 
 const StatisticsItem = props => {
   return (
@@ -20,12 +20,12 @@ const Statistics = () => {
     {id:3, name:'SettingsItem(3)'},
     {id:4, name:'SettingsItem(4)'},
   ]
-  let MessagesData = [
-    {id:1, messages:'Hello Yo'},
-    {id:2, messages:'Hello'},
-    {id:3, messages:'Yo'},
-    {id:4, messages:'Yo'},
-  ]
+  // let MessagesData = [
+  //   {id:1, messages:'Hello Yo'},
+  //   {id:2, messages:'Hello'},
+  //   {id:3, messages:'Yo'},
+  //   {id:4, messages:'Yo'},
+  // ]
 
   return (
     <ul className="Statistics">
@@ -36,7 +36,7 @@ const Statistics = () => {
       <StatisticsItem name={StatisticsData[2].name} id={StatisticsData[2].id} />
       <StatisticsItem name={StatisticsData[3].name} id={StatisticsData[3].id} />
       </div>
-      <MessagesExemple posts={MessagesData} />
+      {/* <MessagesExemple posts={MessagesData} /> */}
     </ul>
   )
 }
