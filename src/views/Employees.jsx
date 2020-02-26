@@ -4,8 +4,8 @@ import React from 'react'
 const Employees = (props) => {
   return (
     <div>
-      <h1>{props.name}</h1>
-      <h2>{props.names}</h2>
+      {/* <h1>{ props.state.dialogs}</h1> */}
+      <h2>qwe</h2>
       Employees
     </div>
   )

@@ -1,10 +1,10 @@
 import React from 'react'
 import NavMenu from './NavMenu'
-import Uzers from './Uzers'
+import Uzers from './NavbarUzer'
 
-const Sidebar = () => {
+const Navbar = () => {
   return (
-    <div className='Sidebar'>
+    <div className='Navbar'>
       <Uzers />
       <nav>
         <NavMenu url="/Employees" name="Employees" />
@@ -17,4 +17,4 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default Navbar
