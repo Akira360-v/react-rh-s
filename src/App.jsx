@@ -29,7 +29,7 @@ const App = props => {
         <div className="app-wrapper-content">
           <Route
             path="/employees"
-            render={() => <Employees state={props.state.EmployeesPage} />}
+            render={() => <Employees state={props.state.EmployeesPage} addPost={props.addPost} />}
           />
           <Route path="/equipment" render={() => <Equipment />} />
           <Route path="/statistics" render={() => <Statistics />} />
