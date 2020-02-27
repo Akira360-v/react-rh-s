@@ -36,11 +36,55 @@ npm install sass-loader node-sass --save-dev
 
 
 
+## api 
+# key Akira
+d5983d196d35ec7be3e70e540e52d7fc
+api.openweathermap.org/data/2.5/weather?q=Donetsk,ua&appid=ВАШ_КЛЮЧ&units=metric
+https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22
+
+<!-- ------------------------------ test api ------------------------------- -->
+/* -------------------------------------------------------------------------- */
+/*                                     -_-                                    */
+/* -------------------------------------------------------------------------- */
+import Vue from 'vue'
+import Vuex from 'vuex'
+import auth from './auth'
+import info from './info'
+import category from './category'
+import record from './record'
 
 
 
+Vue.use(Vuex)
 
+export default new Vuex.Store({
+  state: {
+    error: null
+  },
+  mutations: {
+    setError(state, error) {
+      state.error = error
+    },
+    clearError(state) {
+      state.error = null
+    }
+  },
+  actions: {
+    async fetchCurrency() {
+      const key = process.env.VUE_APP_FIXER
+      const res = await fetch(`http://data.fixer.io/api/latest?access_key=${key}&symbols=USD,EUR,RUB`)
+      return await res.json()
+    }
+  },
+  getters: {
+    error: s => s.error
+  },
+  modules: {
+    auth, info, category, record
+  }
+})
 
+<!-- ------------------------------ test api ------------------------------- -->
 
 
 

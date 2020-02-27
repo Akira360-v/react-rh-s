@@ -1,12 +1,12 @@
 import React from 'react'
+// import SettingsItem from '../components/blocks/Settings/SettingsItem'
+import EmployeesUzers from '../components/blocks/Employees/EmployeesUzers'
 
+const Employees = props => {
 
-const Employees = (props) => {
   return (
-    <div>
-      {/* <h1>{ props.state.dialogs}</h1> */}
-      <h2>qwe</h2>
-      Employees
+    <div className="Employees">
+      <EmployeesUzers state={props.state.staff}  />
     </div>
   )
 }
