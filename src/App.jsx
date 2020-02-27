@@ -2,7 +2,9 @@ import React from 'react'
 // components app
 import Sidebar from './components/app/sidebar/Sidebar'
 import Navbar from './components/app/navbar/Navbar'
-import Dialogs from './components/exemple/Dialogs/Dialogs'
+// exemple
+// import Dialogs from './components/exemple/Dialogs/Dialogs'
+// import Profile from './components/exemple/Profile/Profile'
 // components app //
 // views
 import Employees from './views/Employees'
@@ -19,27 +21,34 @@ import './App.css'
 // css //
 
 const App = props => {
-  // debugger;
   return (
-      <div className="app-wrapper">
-        <Sidebar />
-        <div className="app-wrappers">
-          <Navbar />
-          <div className="app-wrapper-content">
-            <Route path="/employees" render={() => <Employees />} />
-            <Route path="/equipment" render={() => <Equipment />} />
-            <Route path="/statistics" render={() => <Statistics />} />
-            <Route
-              path="/settings"
-              render={() => <Settings state={props.state.SettingsPage} />}
-            />
-            <Route
+    <div className="app-wrapper">
+      <Sidebar />
+      <div className="app-wrappers">
+        <Navbar />
+        <div className="app-wrapper-content">
+          <Route
+            path="/employees"
+            render={() => <Employees state={props.state.EmployeesPage} />}
+          />
+          <Route path="/equipment" render={() => <Equipment />} />
+          <Route path="/statistics" render={() => <Statistics />} />
+          <Route
+            path="/settings"
+            render={() => <Settings state={props.appState.SettingsPage} />}
+          />
+          {/* exemple */}
+          {/* <Route
               path="/dialogs"
               render={() => <Dialogs state={props.state.dialogsPage} />}
-            />
-          </div>
+            /> */}
+          {/* <Route path='/profile'
+              render={ () => <Profile
+              state={props.state.profilePage}
+              addPost={props.addPost} />}/> */}
         </div>
       </div>
+    </div>
   )
 }
 
