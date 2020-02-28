@@ -3,13 +3,19 @@ import React from 'react'
 const EmployeesAddPost = props => {
   let newPostElement = React.createRef()
 
+  // let addPost = () => {
+  //   let text = newPostElement.current.value
+  //   props.addPost(text)
+  //   // props.updataNewPostText('')
+  //   // обнуление после клика
+  //   // newPostElement.current.value = ''
+  //   // console.log(text);
+  // }
+
   let addPost = () => {
-    let text = newPostElement.current.value
-    props.addPost(text)
-    // props.updataNewPostText('')
-    // обнуление после клика
-    // newPostElement.current.value = ''
+    props.addPost()
   }
+
   let onPostChenge = () => {
     let text = newPostElement.current.value
     props.updataNewPostText(text)

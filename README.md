@@ -13,8 +13,8 @@ import Headerlogo from '../../assets/images/logo.jpg'
 
 <img src={Headerlogo} alt="logo"/>
 
-
-
+<!-- анонимная функцыя -->
+() => {}
 
 
 

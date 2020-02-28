@@ -19,9 +19,10 @@ const Employees = props => {
       {EmployeesUzersElements}{' '}
       <div className="qweasd">
         <EmployeesAddPost
-          addPost={props.addPost}
+          // addPost={props.addPost}
+          
           PostDefault={props.PostDefault.newPostsText}
-          updataNewPostText={props.updataNewPostText}
+          dispatch={props.dispatch}
         />
       </div>
     </div>
