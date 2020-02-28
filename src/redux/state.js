@@ -1,4 +1,6 @@
-import {rerenderEntireTree} from "../render";
+let rerenderEntireTree = () => {
+  console.log('hello (-_-)')
+}
 
 let state = {
   EmployeesPage: {
@@ -44,6 +46,9 @@ let state = {
         position: ' Poliglot, Donetsk'
       }
     ]
+  },
+  addPostDefault: {
+    newPostsText: 'hello'
   },
   profilePage: {
     posts: [
@@ -94,8 +99,12 @@ let state = {
   //   return await res.json()
   // }
 }
+// exeple win delpoy delete
+window.state = state
+// exeple win delpoy delete //
+
 // exemple
-export let addPost = postMessage => {
+export const addPost = postMessage => {
   let newPost = {
     id: 6,
     name: postMessage,
@@ -105,7 +114,17 @@ export let addPost = postMessage => {
     position: postMessage
   }
   state.EmployeesPage.staff.push(newPost)
+  // занулиние
+  state.addPostDefault.newPostsText = ''
   rerenderEntireTree(state)
+}
+export const updataNewPostText = newPost => {
+  state.addPostDefault.newPostsText = newPost
+  rerenderEntireTree()
+}
+
+export const subscribe = observer => {
+  rerenderEntireTree = observer // observer Паттерн
 }
 
 export default state

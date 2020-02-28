@@ -18,7 +18,8 @@ import Headerlogo from '../../assets/images/logo.jpg'
 
 
 
-
+# вивод в виндовс
+// window.state = state
 
 
 
