@@ -1,7 +1,7 @@
 import React from 'react'
 // import SettingsItem from '../components/blocks/Settings/SettingsItem'
 import EmployeesUzers from '../components/blocks/Employees/EmployeesUzers'
-import MyPosts from '../components/exemple/Profile/MyPosts/MyPosts'
+import EmployeesAddPost from '../components/blocks/Employees/EmployeesAddPost'
 
 const Employees = props => {
   let EmployeesUzersElements = props.state.staff.map(d => (
@@ -14,12 +14,15 @@ const Employees = props => {
       position={d.position}
     />
   ))
-  // debugger
   return (
     <div className="Employees">
       {EmployeesUzersElements}{' '}
       <div className="qweasd">
-        <MyPosts addPost={props.addPost} />
+        <EmployeesAddPost
+          addPost={props.addPost}
+          PostDefault={props.PostDefault.newPostsText}
+          updataNewPostText={props.updataNewPostText}
+        />
       </div>
     </div>
   )

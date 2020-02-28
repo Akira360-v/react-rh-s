@@ -5,20 +5,15 @@ import Navbar from './components/app/navbar/Navbar'
 // exemple
 // import Dialogs from './components/exemple/Dialogs/Dialogs'
 // import Profile from './components/exemple/Profile/Profile'
+// exemple //
 // components app //
-// views
 import Employees from './views/Employees'
 import Equipment from './views/Equipment'
 import Statistics from './views/Statistics'
 import Settings from './views/Settings'
-// views //
-// Route
 import { Route } from 'react-router-dom'
-// Route //
-// css
 import './assets/sass/index.sass'
 import './App.css'
-// css //
 
 const App = props => {
   return (
@@ -29,7 +24,14 @@ const App = props => {
         <div className="app-wrapper-content">
           <Route
             path="/employees"
-            render={() => <Employees state={props.state.EmployeesPage} addPost={props.addPost} />}
+            render={() => (
+              <Employees
+                state={props.state.EmployeesPage}
+                addPost={props.addPost}
+                PostDefault={props.state.addPostDefault}
+                updataNewPostText={props.updataNewPostText}
+              />
+            )}
           />
           <Route path="/equipment" render={() => <Equipment />} />
           <Route path="/statistics" render={() => <Statistics />} />
