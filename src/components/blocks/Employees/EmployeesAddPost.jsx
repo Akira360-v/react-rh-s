@@ -2,18 +2,16 @@ import React from 'react'
 
 const EmployeesAddPost = props => {
   let newPostElement = React.createRef()
-
+  
   let addPost = () => {
-    let text = newPostElement.current.value
-    props.addPost(text)
-    // props.updataNewPostText('')
-    // обнуление после клика
-    // newPostElement.current.value = ''
+    props.dispatch({ type: 'ADD-POST' })
   }
   let onPostChenge = () => {
     let text = newPostElement.current.value
-    props.updataNewPostText(text)
+    let action = { type: 'UPDATE-NEW-POST-TEXT', newPost: text }
+    props.dispatch(action)
   }
+  // one ///////////////////////
 
   return (
     <div className="EmployeesAddPost">
@@ -27,7 +25,7 @@ const EmployeesAddPost = props => {
           />
         </div>
         <div>
-          <button onClick={addPost}>Add post</button>
+          <button onClick={addPost} /* type={'ADD-POST'} */>Add post</button>
         </div>
       </div>
     </div>

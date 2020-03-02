@@ -27,10 +27,9 @@ const App = props => {
             render={() => (
               <Employees
                 state={props.state.EmployeesPage}
-                addPost={props.addPost}
+                dispatch={props.dispatch}
                 PostDefault={props.state.addPostDefault}
-                updataNewPostText={props.updataNewPostText}
-              />
+              /> 
             )}
           />
           <Route path="/equipment" render={() => <Equipment />} />
