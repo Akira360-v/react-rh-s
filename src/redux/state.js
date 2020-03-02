@@ -72,50 +72,33 @@ let store = {
     //   return await res.json()
     // }
   },
-
+  _callSubscriber() {
+    console.log('State changed');
+},
   getState() {
     return this._state
   },
-  rerenderEntireTree() {
-    console.log('hello (-_-)')
-  },
-  addPost(postMessage) {
-    let newPost = {
-      id: 6,
-      name: postMessage,
-      surname: postMessage,
-      patronymic: postMessage,
-      residence: postMessage,
-      position: postMessage
-    }
-    this._state.EmployeesPage.staff.push(newPost)
-    this._state.addPostDefault.newPostsText = ''
-    this._rerenderEntireTree(this._state)
-  },
-  updataNewPostText(newPost) {
-    this._state.addPostDefault.newPostsText = newPost
-    this._rerenderEntireTree(this._state)
-  },
+  
   subscribe(observer) {
-    this._rerenderEntireTree = observer // observer Паттерн
-  },
+    this._callSubscriber = observer;  // observer
+},
   dispatch(action) {
     //type: 'ADD-POST'
     if (action.type === 'ADD-POST') {
       let newPost = {
         id: 6,
-        name: postMessage,
-        surname: postMessage,
-        patronymic: postMessage,
-        residence: postMessage,
-        position: postMessage
+        name: this._state.addPostDefault.newPostsText,
+        surname: this._state.addPostDefault.newPostsText,
+        patronymic: this._state.addPostDefault.newPostsText,
+        residence: this._state.addPostDefault.newPostsText,
+        position: this._state.addPostDefault.newPostsText,
       }
       this._state.EmployeesPage.staff.push(newPost)
       this._state.addPostDefault.newPostsText = ''
-      this._rerenderEntireTree(this._state)
+      this._callSubscriber(this._state)
     } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
       this._state.addPostDefault.newPostsText = action.newPost
-      this._rerenderEntireTree(this._state)
+      this._callSubscriber(this._state)
     }
   }
 }

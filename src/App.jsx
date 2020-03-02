@@ -29,7 +29,7 @@ const App = props => {
                 state={props.state.EmployeesPage}
                 dispatch={props.dispatch}
                 PostDefault={props.state.addPostDefault}
-              />
+              /> 
             )}
           />
           <Route path="/equipment" render={() => <Equipment />} />
