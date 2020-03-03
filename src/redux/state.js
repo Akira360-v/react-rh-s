@@ -1,3 +1,9 @@
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY'
+const SEND_MESSAGE = 'SEND-MESSAGE'
+
 let store = {
   _state: {
     EmployeesPage: {
@@ -46,7 +52,8 @@ let store = {
         { id: 3, message: 'Yo' },
         { id: 4, message: 'Yo' },
         { id: 5, message: 'Yo' }
-      ]
+      ],
+      newMessageBody: ''
     },
     SettingsPage: {
       dialogs: [
@@ -73,35 +80,58 @@ let store = {
     // }
   },
   _callSubscriber() {
-    console.log('State changed');
-},
+    console.log('State changed')
+  },
   getState() {
     return this._state
   },
-  
+
   subscribe(observer) {
-    this._callSubscriber = observer;  // observer
-},
+    this._callSubscriber = observer // observer
+  },
+
   dispatch(action) {
     //type: 'ADD-POST'
-    if (action.type === 'ADD-POST') {
+    if (action.type === ADD_POST) {
       let newPost = {
         id: 6,
         name: this._state.addPostDefault.newPostsText,
         surname: this._state.addPostDefault.newPostsText,
         patronymic: this._state.addPostDefault.newPostsText,
         residence: this._state.addPostDefault.newPostsText,
-        position: this._state.addPostDefault.newPostsText,
+        position: this._state.addPostDefault.newPostsText
       }
       this._state.EmployeesPage.staff.push(newPost)
       this._state.addPostDefault.newPostsText = ''
       this._callSubscriber(this._state)
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.addPostDefault.newPostsText = action.newPost
+      this._callSubscriber(this._state)
+    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+      this._state.dialogsPage.newMessageBody = action.body
+      this._callSubscriber(this._state)
+    } else if (action.type === SEND_MESSAGE) {
+      let body = this._state.dialogsPage.newMessageBody
+      this._state.dialogsPage.newMessageBody = ''
+      this._state.dialogsPage.messages.push({ id: 6, message: body })
       this._callSubscriber(this._state)
     }
   }
 }
+
+export const addPostActionCreator = () => ({ type: ADD_POST })
+export const updateNewPostTextActionCreator = text => ({
+  type: UPDATE_NEW_POST_TEXT,
+  newPost: text
+})
+
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
+export const updateNewMessageBodyCreator = body => ({
+  type: UPDATE_NEW_MESSAGE_BODY,
+  body: body
+})
+
+
 
 export default store
 window.store = store

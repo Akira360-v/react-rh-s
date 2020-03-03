@@ -3,17 +3,32 @@ import s from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import Form from '../Form/Form'
+import {sendMessageCreator, updateNewMessageBodyCreator} from '../../../redux/state'
 
-const API_KEY = 'd5983d196d35ec7be3e70e540e52d7fc'
+
+// const API_KEY = 'd5983d196d35ec7be3e70e540e52d7fc'
 
 const Dialogs = props => {
+
+  // let store = props.state.dialogs
+
+
   let dialogsElements = props.state.dialogs.map(d => (
     <DialogItem name={d.name} id={d.id} />
   ))
   let messagesElements = props.state.messages.map(m => (
     <Message message={m.message} />
   ))
-
+  let newMessageBody = props.state.newMessageBody
+  let onSendMessageClick = () => {
+    props.dispatch(sendMessageCreator())
+  }
+  // debugger
+  let onNewMessagesChange = e => {
+    let body = e.target.value
+    props.dispatch(updateNewMessageBodyCreator(body))
+  }
+  
   let addPost = () => {
     alert('hello')
   }
@@ -29,17 +44,29 @@ const Dialogs = props => {
     alert(text)
   }
 
-  let gettingWeather = async props => {
-    const api__url = await fetch(
-      `api.openweathermap.org/data/2.5/weather?q=Donetsk,ua&appid=${API_KEY}&units=metric`
-    )
-    const data = await api__url.json()
-    console.log()
-  }
+  // let gettingWeather = async props => {
+  //   const api__url = await fetch(
+  //     `api.openweathermap.org/data/2.5/weather?q=Donetsk,ua&appid=${API_KEY}&units=metric`
+  //   )
+  //   const data = await api__url.json()
+  //   console.log()
+  // }
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>{dialogsElements}</div>
-      <div className={s.messages}>{messagesElements}</div>
+      <div className="messagesElements__cont">
+        <div className="">{messagesElements}</div>
+        <div className="">
+          <textarea
+            value={newMessageBody}
+            onChange={onNewMessagesChange}
+            placeholder="Enter my"
+          ></textarea>
+        </div>
+        <div className="">
+          <button onClick={onSendMessageClick}>Send</button>
+        </div>
+      </div>
       <div className="button123">
         <Form weatherMethod={props.state} />
 
