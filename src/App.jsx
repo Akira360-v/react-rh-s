@@ -3,7 +3,7 @@ import React from 'react'
 import Sidebar from './components/app/sidebar/Sidebar'
 import Navbar from './components/app/navbar/Navbar'
 // exemple
-// import Dialogs from './components/exemple/Dialogs/Dialogs'
+import Dialogs from './components/exemple/Dialogs/Dialogs'
 // import Profile from './components/exemple/Profile/Profile'
 // exemple //
 // components app //
@@ -29,20 +29,25 @@ const App = props => {
                 state={props.state.EmployeesPage}
                 dispatch={props.dispatch}
                 PostDefault={props.state.addPostDefault}
-              /> 
+              />
             )}
           />
           <Route path="/equipment" render={() => <Equipment />} />
           <Route path="/statistics" render={() => <Statistics />} />
           <Route
             path="/settings"
-            render={() => <Settings state={props.appState.SettingsPage} />}
+            render={() => <Settings state={props.state.SettingsPage} />}
           />
           {/* exemple */}
-          {/* <Route
-              path="/dialogs"
-              render={() => <Dialogs state={props.state.dialogsPage} />}
-            /> */}
+          <Route
+            path="/dialogs"
+            render={() => (
+              <Dialogs
+                state={props.state.dialogsPage}
+                dispatch={props.dispatch}
+              />
+            )}
+          />
           {/* <Route path='/profile'
               render={ () => <Profile
               state={props.state.profilePage}
