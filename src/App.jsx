@@ -14,11 +14,17 @@ import Settings from './views/Settings'
 import { Route } from 'react-router-dom'
 import './assets/sass/index.sass'
 import './App.css'
+import SignUpForm from './components/SignUp/index'
+import SignIn from './components/SignIn/index'
+import Navigation from './components/Navigation/index'
 
 const App = props => {
   return (
     <div className="app-wrapper">
+      
+      <Navigation />
       <Sidebar />
+      
       <div className="app-wrappers">
         <Navbar />
         <div className="app-wrapper-content">
@@ -45,6 +51,34 @@ const App = props => {
               <Dialogs
                 state={props.state.dialogsPage}
                 dispatch={props.dispatch}
+              />
+            )}
+          />
+          <Route
+            path="/register"
+            render={() => (
+              <SignUpForm
+              // state={props.state.dialogsPage}
+              // dispatch={props.dispatch}
+              />
+            )}
+          />
+          <Route
+            path="/login"
+            render={() => (
+              <SignIn
+              // state={props.state.dialogsPage}
+              // dispatch={props.dispatch}
+              />
+            )}
+          />
+          />
+          <Route
+            path="/navigation"
+            render={() => (
+              <Navigation
+              // state={props.state.dialogsPage}
+              // dispatch={props.dispatch}
               />
             )}
           />
