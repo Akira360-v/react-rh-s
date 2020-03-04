@@ -20,7 +20,7 @@ const Employees = props => {
       <div className="qweasd">
         <EmployeesAddPost
           // addPost={props.addPost}
-          PostDefault={props.PostDefault.newPostsText}
+          PostDefault={props.state.addPostsDefault}
           dispatch={props.dispatch}
         />
       </div>

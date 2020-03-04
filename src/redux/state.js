@@ -1,8 +1,5 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY'
-const SEND_MESSAGE = 'SEND-MESSAGE'
+import employeesReducer from './employees-reducer'
+import dialogsReducer from './dialogs-reducer'
 
 let store = {
   _state: {
@@ -24,10 +21,11 @@ let store = {
           residence: 'Руководитель проекта',
           position: ' Poliglot, Donetsk'
         }
-      ]
-    },
-    addPostDefault: {
-      newPostsText: 'hello'
+      ],
+      addPostsDefault: {
+        newPostsText: 'hello'
+      }
+      
     },
     profilePage: {
       posts: [
@@ -72,12 +70,6 @@ let store = {
         { id: 5, message: 'Yo' }
       ]
     }
-
-    // async fetchCurrency() {
-    //   const key = process.env.VUE_APP_FIXER
-    //   const res = await fetch(`http://data.fixer.io/api/latest?access_key=${key}&symbols=USD,EUR,RUB`)
-    //   return await res.json()
-    // }
   },
   _callSubscriber() {
     console.log('State changed')
@@ -91,47 +83,11 @@ let store = {
   },
 
   dispatch(action) {
-    //type: 'ADD-POST'
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 6,
-        name: this._state.addPostDefault.newPostsText,
-        surname: this._state.addPostDefault.newPostsText,
-        patronymic: this._state.addPostDefault.newPostsText,
-        residence: this._state.addPostDefault.newPostsText,
-        position: this._state.addPostDefault.newPostsText
-      }
-      this._state.EmployeesPage.staff.push(newPost)
-      this._state.addPostDefault.newPostsText = ''
-      this._callSubscriber(this._state)
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.addPostDefault.newPostsText = action.newPost
-      this._callSubscriber(this._state)
-    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-      this._state.dialogsPage.newMessageBody = action.body
-      this._callSubscriber(this._state)
-    } else if (action.type === SEND_MESSAGE) {
-      let body = this._state.dialogsPage.newMessageBody
-      this._state.dialogsPage.newMessageBody = ''
-      this._state.dialogsPage.messages.push({ id: 6, message: body })
-      this._callSubscriber(this._state)
-    }
+    this._state.EmployeesPage =employeesReducer(this._state.EmployeesPage, action)
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+    this._callSubscriber(this._state)
   }
 }
-
-export const addPostActionCreator = () => ({ type: ADD_POST })
-export const updateNewPostTextActionCreator = text => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newPost: text
-})
-
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
-export const updateNewMessageBodyCreator = body => ({
-  type: UPDATE_NEW_MESSAGE_BODY,
-  body: body
-})
-
-
 
 export default store
 window.store = store
