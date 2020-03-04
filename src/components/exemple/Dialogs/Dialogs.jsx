@@ -3,7 +3,7 @@ import s from './Dialogs.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import Form from '../Form/Form'
-import {sendMessageCreator, updateNewMessageBodyCreator} from '../../../redux/state'
+import {sendMessageCreator, updateNewMessageBodyCreator} from '../../../redux/dialogs-reducer'
 
 
 // const API_KEY = 'd5983d196d35ec7be3e70e540e52d7fc'

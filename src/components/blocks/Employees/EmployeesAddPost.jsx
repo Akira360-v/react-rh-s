@@ -2,7 +2,8 @@ import React from 'react'
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator
-} from '../../../redux/state'
+} from '../../../redux/employees-reducer'
+
 
 const EmployeesAddPost = props => {
   let newPostElement = React.createRef()
@@ -16,7 +17,6 @@ const EmployeesAddPost = props => {
     props.dispatch(action)
   }
   // one ///////////////////////
-
   return (
     <div className="EmployeesAddPost">
       <h3>My posts</h3>
@@ -25,11 +25,11 @@ const EmployeesAddPost = props => {
           <textarea
             onChange={onPostChenge}
             ref={newPostElement}
-            value={props.PostDefault}
+            value={props.PostDefault.newPostsText}
           />
         </div>
         <div>
-          <button onClick={addPost} /* type={'ADD-POST'} */>Add post</button>
+          <button onClick={addPost}  type={'ADD-POST'} >Add post</button>
         </div>
       </div>
     </div>
