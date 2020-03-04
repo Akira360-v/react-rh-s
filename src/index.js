@@ -11,16 +11,23 @@ import 'firebase/auth'
 import 'firebase/database'
 
 firebase.initializeApp({
-  apiKey: "AIzaSyDfOHIbVIF9AGMu-BLMIi702Fc1TQ3MLtw",
-  authDomain: "remote-helpers.firebaseapp.com",
-  databaseURL: "https://remote-helpers.firebaseio.com",
-  projectId: "remote-helpers",
-  storageBucket: "remote-helpers.appspot.com",
-  messagingSenderId: "453570540241",
-  appId: "1:453570540241:web:f8f59735d6d01a0bfe0bf0",
-  measurementId: "G-P5D4HZS0YQ"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 })
 let rerenderEntireTree
+
+// class Firebase {
+//   constructor() {
+//     app.initializeApp(config);
+//   }
+// }
+// export default Firebase;
 
 firebase.auth().onAuthStateChanged(() => {
   if (!rerenderEntireTree) {
