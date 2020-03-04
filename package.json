@@ -35,6 +35,7 @@
   "devDependencies": {
     "firebase": "^7.9.3",
     "node-sass": "^4.13.1",
+    "recompose": "^0.30.0",
     "sass-loader": "^8.0.2"
   }
 }

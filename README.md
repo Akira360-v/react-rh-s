@@ -42,7 +42,7 @@ npm install sass-loader node-sass --save-dev
 
 
 
-
+npm install recompose
 
 
 
