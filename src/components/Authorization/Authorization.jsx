@@ -1,5 +1,5 @@
 import React from 'react'
-import Navigation from '../Navigation/index'
+import Navigation from './Navigation/Navigation'
 
 const Authorization = props => {
   return (
