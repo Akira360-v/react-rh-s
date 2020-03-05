@@ -25,6 +25,7 @@ import Navigation from './components/Navigation/index'
 // const App = props => {
 import { withAuthentication } from './components/Session'
 import AccountPage from './components/Account/index'
+import PasswordForgetPage from "./components/PasswordForget";
 const App = props => (
   <Router>
     <div className="app-wrapper">
@@ -48,6 +49,8 @@ const App = props => (
               />
             )}
           /> */}
+          {/*<PasswordForgetPage />*/}
+          <Route path="/pw-forget" render={() =>  <PasswordForgetPage />} />
           <Route path="/equipment" render={() => <Equipment />} />
           <Route path="/statistics" render={() => <Statistics />} />
           <Route
