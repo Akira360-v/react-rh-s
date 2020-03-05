@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import {Route, withRouter} from 'react-router-dom'
+import { withRouter} from 'react-router-dom'
 // import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import { compose } from 'recompose'
-import { SignUpLink } from '../SignUp'
+import { SignUpLink } from '../SignUp/SignUp'
 // забыл пороль
 import { withFirebase } from '../Firebase'
-import * as ROUTES from '../../constants/routes'
+import * as ROUTES from '../../../constants/routes'
 
-import { PasswordForgetLink } from '../PasswordForget'
+import { PasswordForgetLink } from '../PasswordForget/PasswordForget'
 // import Settings from "../../views/Settings";
 
 const SignInPage = () => (
