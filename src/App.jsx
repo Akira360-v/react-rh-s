@@ -11,9 +11,9 @@ import './App.css'
 import SignUpForm from './components/Authorization/SignUp/SignUp'
 import SignIn from './components/Authorization/SignIn/SignIn'
 // import Navigation from './components/Navigation/index'
-import { withAuthentication } from './components/Session'
-import AccountPage from './components/Account/index'
-import PasswordForgetPage from './components/PasswordForget'
+import { withAuthentication } from './components/Authorization/Session'
+import AccountPage from './components/Authorization/Account/Account'
+import PasswordForgetPage from './components/Authorization/PasswordForget/PasswordForget'
 import Authorization from './components/Authorization/Authorization'
 
 const App = props => (
@@ -22,11 +22,6 @@ const App = props => (
       <Switch>
         <Authorization />
       </Switch>
-      <div className="qweqwe">
-        qweqwe qweqwe qweqwe
-        {/* <Navigation /> */}
-        qweqwe qweqwe
-      </div>
 
       <Sidebar />
       <div className="app-wrappers">

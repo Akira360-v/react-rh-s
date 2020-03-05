@@ -8,7 +8,7 @@ import { SignUpLink } from '../SignUp/SignUp'
 import { withFirebase } from '../Firebase'
 import * as ROUTES from '../../../constants/routes'
 
-import { PasswordForgetLink } from '../../PasswordForget'
+import { PasswordForgetLink } from '../PasswordForget/PasswordForget'
 // import Settings from "../../views/Settings";
 
 const SignInPage = () => (
