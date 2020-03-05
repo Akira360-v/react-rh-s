@@ -1,19 +1,28 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import {Route, withRouter} from 'react-router-dom'
+// import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 import { compose } from 'recompose'
 import { SignUpLink } from '../SignUp'
 // забыл пороль
-// import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase'
 import * as ROUTES from '../../constants/routes'
 
 import { PasswordForgetLink } from '../PasswordForget'
+// import Settings from "../../views/Settings";
 
 const SignInPage = () => (
   <div>
+
     <h1>SignIn</h1>
     <SignInForm />
+    {/*<Route*/}
+    {/*  path="/login/"*/}
+    {/*  render={() => }*/}
+    {/*/>*/}
+    {/*<PasswordForgetLink />*/}
     <PasswordForgetLink />
+    {/*<PasswordForgetPage />*/}
     <SignUpLink />
   </div>
 )
