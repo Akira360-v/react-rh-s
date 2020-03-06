@@ -3,40 +3,44 @@ import { Link } from 'react-router-dom'
 import SignOutButton from '../SignOut/SignOut'
 import * as ROUTES from '../../../constants/routes'
 import { AuthUserContext } from '../Session'
+import Navbar from '../../app/navbar/Navbar'
 
 const Navigation = () => (
-  <div>
-    <AuthUserContext.Consumer>
-      {authUser => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
-    </AuthUserContext.Consumer>
-  </div>
+  <AuthUserContext.Consumer>
+    {authUser => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
+  </AuthUserContext.Consumer>
 )
 
 const NavigationAuth = () => (
-  <ul>
-    <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.HOME}>Home</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.ACCOUNT}>Account</Link>
-    </li>
-    <li>
-      <SignOutButton />
-    </li>
-  </ul>
+  <div className="app-wrapper-content">
+    <div className="navbar">
+      <ul>
+        <li>
+          <Link to={ROUTES.HOME}>Home</Link>
+        </li>
+        <li>
+          <Link to={ROUTES.ACCOUNT}>Account</Link>
+        </li>
+        <li>
+          <Link to={ROUTES.LANDING}>
+            <SignOutButton />
+          </Link>
+        </li>
+      </ul>
+    </div>
+    <Navbar />
+    <div className="app-wrapper-content">
+      <p>asdasdasd</p>
+      <p>asdasdasd</p>
+      <p>asdasdasd</p>
+      <p>asdasdasd</p>
+      <p>asdasdasd</p>
+    </div>
+  </div>
 )
 
 const NavigationNonAuth = () => (
-  <div className="empty-layout">
-    <ul>
-      <li>
-        <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-      </li>
-    </ul>
-  </div>
+  <div></div>
 )
 
 export default Navigation

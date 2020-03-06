@@ -3,6 +3,8 @@ import { Link, withRouter } from 'react-router-dom'
 import { withFirebase } from '../Firebase'
 import { compose } from 'recompose'
 import { PasswordForgetLink } from '../PasswordForget/PasswordForget'
+import * as ROUTES from '../../../constants/routes'
+
 const SignUpPage = () => (
   <div className='form__cont'>
     <h1>SignUp</h1>
@@ -85,15 +87,19 @@ class SignUpFormBase extends Component {
         <PasswordForgetLink />
 
         <p>
-          login to account<Link to="/">Sign In</Link>
+          login to account <Link to="/">Sign In</Link>
         </p>
       </div>
     )
   }
 }
 const SignUpLink = () => (
+  // <p>
+  //   Don't have an account? <Link to="/register"> Sign Up</Link>
+  // </p>
+  
   <p>
-    Don't have an account? <Link to="/register">Sign Up</Link>
+  Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
   </p>
 )
 const SignUpForm = compose(withRouter, withFirebase)(SignUpFormBase)

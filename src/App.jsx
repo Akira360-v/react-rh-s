@@ -6,28 +6,18 @@ import SignIn from './components/Authorization/SignIn/SignIn'
 // import Navigation from './components/Navigation/index'
 import { withAuthentication } from './components/Authorization/Session'
 import SignInPage from './components/Authorization/SignUp/SignUp'
+import NavigationAuth from './components/Authorization/Navigation/Navigation'
+import PasswordForgetPage from './components/Authorization/PasswordForget/PasswordForget'
 
 const App = props => (
   <Router>
     <div className="app-wrapper">
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <SignIn
-            />
-          )}
-        />
-        <Route
-          path="/register"
-          render={() => <SignInPage />}
-        />
+        <Route exact path="/" render={() => <SignIn />} />
+        <Route path="/register" render={() => <SignInPage />} />
+        <Route path="/pw-forget" render={() => <PasswordForgetPage />} />
       </Switch>
-
-      <div className="app-wrappers">
-        <div className="app-wrapper-content"></div>
-      </div>
+      <NavigationAuth />
     </div>
   </Router>
 )

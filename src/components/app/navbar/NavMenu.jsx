@@ -5,7 +5,7 @@ const NavMenu = props => {
   return (
     <ul className="NavMenu">
       <li>
-        <NavLink to={props.url}>{props.name}</NavLink>
+        <NavLink to={props.to}>{props.name}</NavLink>
       </li>
     </ul>
   )
