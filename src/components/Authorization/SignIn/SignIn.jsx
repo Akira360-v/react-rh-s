@@ -16,13 +16,7 @@ const SignInPage = () => (
 
     <h1>SignIn</h1>
     <SignInForm />
-    {/*<Route*/}
-    {/*  path="/login/"*/}
-    {/*  render={() => }*/}
-    {/*/>*/}
-    {/*<PasswordForgetLink />*/}
     <PasswordForgetLink />
-    {/*<PasswordForgetPage />*/}
     <SignUpLink />
   </div>
 )

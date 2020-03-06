@@ -16,11 +16,21 @@ import AccountPage from './components/Authorization/Account/Account'
 import PasswordForgetPage from './components/Authorization/PasswordForget/PasswordForget'
 import Authorization from './components/Authorization/Authorization'
 
+
+
+
 const App = props => (
+  
   <Router>
     <div className="app-wrapper">
-      <Switch>
-        <Authorization />
+      
+      <Switch >
+        {/* <Authorization /> */}
+        <Route
+          // exact
+          path="/"
+          render={() => <Authorization to={'/login'} />}
+        />
       </Switch>
 
       <Sidebar />
@@ -101,4 +111,12 @@ const App = props => (
     </div>
   </Router>
 )
+
+
+
+// const condition = authUser => !!authUser;
+
+
 export default withAuthentication(App)
+// export default withAuthorization(condition)(HomePage);
+// 
