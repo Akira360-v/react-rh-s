@@ -1,22 +1,18 @@
 import React from 'react'
 import NavMenu from './NavMenu'
 import Uzers from './NavbarUzer'
+import * as ROUTES from '../../../constants/routes'
+
 
 const Navbar = () => {
   return (
     <div className="Navbar">
       <Uzers />
       <nav>
-        <NavMenu url="/employees" name="Employees" />
-        <NavMenu url="/equipment" name="Equipment" />
-        <NavMenu url="/statistics" name="Statistics" />
-        <NavMenu url="/settings" name="Settings" />
-        {/* exemple */}
-        <NavMenu url="/dialogs" name="dialogs" />
-        <NavMenu url="/register" name="register" />
-        <NavMenu url="/login" name="login" />
-        <NavMenu url="/navigation" name="navigation" />
-        {/* <NavMenu url="/profile" name="profile" /> */}
+        <NavMenu to={ROUTES.HOME} name="Приборная доска" />
+        <NavMenu to="/equipment" name="Equipment" />
+        <NavMenu to="/statistics" name="Statistics" />
+        <NavMenu to="/settings" name="Settings" />
       </nav>
     </div>
   )

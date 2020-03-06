@@ -15,6 +15,10 @@ const SignInPage = () => (
     <SignInForm />
     <PasswordForgetLink />
     <SignUpLink />
+    
+    {/* <p>
+    login to account <Link to={ROUTES.LANDING}>Sign In</Link>
+    </p> */}
   </div>
 )
 const INITIAL_STATE = {
