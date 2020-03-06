@@ -2,14 +2,10 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { withFirebase } from '../Firebase'
 import { compose } from 'recompose'
-// import { FirebaseContext } from '../Firebase';
-// import * as ROUTES from '../../constants/routes'
+import { PasswordForgetLink } from '../PasswordForget/PasswordForget'
 const SignUpPage = () => (
-  <div>
+  <div className='form__cont'>
     <h1>SignUp</h1>
-    {/* <FirebaseContext.Consumer>
-      {firebase => <SignUpForm firebase={firebase} />}
-    </FirebaseContext.Consumer> */}
     <SignUpForm />
   </div>
 )
@@ -51,40 +47,47 @@ class SignUpFormBase extends Component {
       email === '' ||
       username === ''
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="username"
-          value={username}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm Password"
-        />
-        <button disabled={isInvalid} type="submit">
-          Sign Up
-        </button>
-        {error && <p>{error.message}</p>}
-      </form>
+      <div className="">
+        <form className='login__form' onSubmit={this.onSubmit}>
+          <input
+            name="username"
+            value={username}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Full Name"
+          />
+          <input
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
+          />
+          <input
+            name="passwordOne"
+            value={passwordOne}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Password"
+          />
+          <input
+            name="passwordTwo"
+            value={passwordTwo}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Confirm Password"
+          />
+          <button disabled={isInvalid} type="submit">
+            Sign Up
+          </button>
+          {error && <p>{error.message}</p>}
+        </form>
+        <PasswordForgetLink />
+
+        <p>
+          login to account<Link to="/">Sign In</Link>
+        </p>
+      </div>
     )
   }
 }

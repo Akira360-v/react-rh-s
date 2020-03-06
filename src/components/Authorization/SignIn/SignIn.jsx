@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter} from 'react-router-dom'
-// import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import { compose } from 'recompose'
 import { SignUpLink } from '../SignUp/SignUp'
@@ -9,20 +8,12 @@ import { withFirebase } from '../Firebase'
 import * as ROUTES from '../../../constants/routes'
 
 import { PasswordForgetLink } from '../PasswordForget/PasswordForget'
-// import Settings from "../../views/Settings";
 
 const SignInPage = () => (
-  <div>
-
+  <div className='form__cont'>
     <h1>SignIn</h1>
     <SignInForm />
-    {/*<Route*/}
-    {/*  path="/login/"*/}
-    {/*  render={() => }*/}
-    {/*/>*/}
-    {/*<PasswordForgetLink />*/}
     <PasswordForgetLink />
-    {/*<PasswordForgetPage />*/}
     <SignUpLink />
   </div>
 )
@@ -56,7 +47,7 @@ class SignInFormBase extends Component {
     const { email, password, error } = this.state
     const isInvalid = password === '' || email === ''
     return (
-      <form onSubmit={this.onSubmit}>
+      <form className="login__form" onSubmit={this.onSubmit}>
         <input
           name="email"
           value={email}
