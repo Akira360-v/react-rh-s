@@ -6,7 +6,7 @@ import { PasswordForgetLink } from '../PasswordForget/PasswordForget'
 import * as ROUTES from '../../../constants/routes'
 
 const SignUpPage = () => (
-  <div className='form__cont'>
+  <div className="form__cont">
     <h1>SignUp</h1>
     <SignUpForm />
   </div>
@@ -29,6 +29,13 @@ class SignUpFormBase extends Component {
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
+        // Create a user in your Firebase realtime database
+        return this.props.firebase.user(authUser.user.uid).set({
+          username,
+          email
+        })
+      })
+      .then(authUser => {
         this.setState({ ...INITIAL_STATE })
         this.props.history.push('/equipment')
       })
@@ -50,7 +57,7 @@ class SignUpFormBase extends Component {
       username === ''
     return (
       <div className="">
-        <form className='login__form' onSubmit={this.onSubmit}>
+        <form className="login__form" onSubmit={this.onSubmit}>
           <input
             name="username"
             value={username}
@@ -97,9 +104,9 @@ const SignUpLink = () => (
   // <p>
   //   Don't have an account? <Link to="/register"> Sign Up</Link>
   // </p>
-  
+
   <p>
-  Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
   </p>
 )
 const SignUpForm = compose(withRouter, withFirebase)(SignUpFormBase)

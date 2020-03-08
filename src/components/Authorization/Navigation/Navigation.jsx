@@ -21,6 +21,10 @@ const NavigationAuth = () => (
         <li>
           <Link to={ROUTES.ACCOUNT}>Account</Link>
         </li>
+
+        <li>
+          <Link to={ROUTES.ADMIN}>Admin</Link>
+        </li>
         <li>
           <Link to={ROUTES.LANDING}>
             <SignOutButton />
@@ -31,16 +35,10 @@ const NavigationAuth = () => (
     <Navbar />
     <div className="app-wrapper-content">
       <p>asdasdasd</p>
-      <p>asdasdasd</p>
-      <p>asdasdasd</p>
-      <p>asdasdasd</p>
-      <p>asdasdasd</p>
     </div>
   </div>
 )
 
-const NavigationNonAuth = () => (
-  <div></div>
-)
+const NavigationNonAuth = () => <div></div>
 
 export default Navigation
