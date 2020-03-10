@@ -11,7 +11,7 @@ let rerenderEntireTree = state => {
   ReactDOM.render(
     <FirebaseContext.Provider value={new Firebase()}>
       <BrowserRouter>
-        <App state={state} dispatch={store.dispatch.bind(store)} />
+        <App />
       </BrowserRouter>
     </FirebaseContext.Provider>,
     document.getElementById('root')

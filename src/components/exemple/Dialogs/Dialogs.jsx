@@ -23,7 +23,6 @@ const Dialogs = props => {
   let onSendMessageClick = () => {
     props.dispatch(sendMessageCreator())
   }
-  // debugger
   let onNewMessagesChange = e => {
     let body = e.target.value
     props.dispatch(updateNewMessageBodyCreator(body))

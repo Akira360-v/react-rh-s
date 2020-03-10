@@ -11,13 +11,13 @@ import SignIn from '../SignIn/SignIn'
 import AdminPage from '../Admin/index'
 import { Route, Switch } from 'react-router-dom'
 
-const Navigation = props => (
+const Navigation = () => (
   <AuthUserContext.Consumer>
     {authUser => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
   </AuthUserContext.Consumer>
 )
 
-const NavigationAuth = props => (
+const NavigationAuth = () => (
   <div className="app-wrapper-content">
     <div className="navbar">
       <ul>
@@ -40,18 +40,18 @@ const NavigationAuth = props => (
     </div>
     <div className="app-wrapper-contents">
       <Navbar />
-
       <AdminPage />
     </div>
   </div>
 )
 
-const NavigationNonAuth = props => (
+const NavigationNonAuth = () => (
   <div>
     <Switch>
       <Route exact path="/" render={() => <SignIn />} />
       <Route path="/register" render={() => <SignInPage />} />
       <Route path="/pw-forget" render={() => <PasswordForgetPage />} />
+      <Route path="*" render={() => <div>404 NOT FOUND</div>} />
     </Switch>
   </div>
 )
