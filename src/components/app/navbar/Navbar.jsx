@@ -15,6 +15,7 @@ const Navbar = () => {
         <NavMenu to="/statistics" name="Statistics" />
         <NavMenu to="/settings" name="Settings" />
         <NavMenu to="/register" name="Register" />
+        <NavMenu to="/dialogs" name="Dialogs" />
       </nav>
     </div>
   )

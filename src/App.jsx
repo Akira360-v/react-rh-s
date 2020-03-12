@@ -5,33 +5,27 @@ import './assets/sass/index.sass'
 import './App.css'
 
 import Navbar from './components/app/navbar/Navbar'
-import Employees from './views/Employees'
+import EmployeesContainer from './components/Employees/EmployeesContainer'
 import Equipment from './views/Equipment'
+import DialogsContainer from './components/Dialogs/DialogsContainer'
 
-const App = props => {
+const App = () => {
   return (
     <div className="app-wrapper">
       <Navbar />
       <div className="app-wrapper-content">
-        <Route
-          path="/employees"
-          render={() => (
-            <Employees
-              store={props.store.getState().EmployeesPage}
-              dispatch={props.store}
-            />
-          )}
-        />
+        <Route path="/employees" render={() => <EmployeesContainer />} />
 
         <Route
           path="/equipment"
           render={() => (
             <Equipment
-              profilePage={props.store.profilePage}
-              dispatch={props.dispatch}
+            // profilePage={props.store.profilePage}
+            // dispatch={props.dispatch}
             />
           )}
         />
+        <Route path="/dialogs" render={() => <DialogsContainer />} />
       </div>
     </div>
   )

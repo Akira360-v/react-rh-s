@@ -1,19 +1,14 @@
 import React from 'react'
-import {
-  addPostActionCreator,
-  updateNewPostTextActionCreator
-} from '../../../redux/employees-reducer'
 
 
 const EmployeesAddPost = props => {
   let newPostElement = React.createRef()
   let addPost = () => {
-    props.dispatch.dispatch(addPostActionCreator())
+    props.addPost()
   }
   let onPostChenge = () => {
     let text = newPostElement.current.value
-    let action = updateNewPostTextActionCreator(text)
-    props.dispatch.dispatch(action)
+    props.updateNewPost(text)
   }
   // one ///////////////////////
   return (

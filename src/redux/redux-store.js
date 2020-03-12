@@ -4,7 +4,7 @@ import dialogsReducer from './dialogs-reducer'
 
 // reducers
 let reducers = combineReducers({
-  EmployeesPage: employeesReducer,
+  employeesPage: employeesReducer,
   dialogsPage: dialogsReducer
 })
 // store
