@@ -3,12 +3,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 // import Firebase, { FirebaseContext } from './components/Authorization/Firebase'
 import { BrowserRouter } from 'react-router-dom'
-// import store from './redux/store'
 import store from './redux/redux-store'
 import App from './App'
 import './index.css'
-// import store from "./redux/redux-store";
-import {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
 
 let rerenderEntireTree = () => {
   ReactDOM.render(
