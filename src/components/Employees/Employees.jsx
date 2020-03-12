@@ -1,10 +1,10 @@
 import React from 'react'
 // import SettingsItem from '../components/blocks/Settings/SettingsItem'
-import EmployeesUzers from '../components/blocks/Employees/EmployeesUzers'
-import EmployeesAddPost from '../components/blocks/Employees/EmployeesAddPost'
+import EmployeesUzers from '../blocks/Employees/EmployeesUzers'
+import EmployeesAddPost from '../blocks/Employees/EmployeesAddPost'
 
 const Employees = props => {
-  let EmployeesUzersElements = props.state.staff.map(d => (
+  let EmployeesUzersElements = props.employeesPage.staff.map(d => (
     <EmployeesUzers
       id={d.id}
       name={d.name}
@@ -19,9 +19,9 @@ const Employees = props => {
       {EmployeesUzersElements}{' '}
       <div className="qweasd">
         <EmployeesAddPost
-          // addPost={props.addPost}
-          PostDefault={props.state.addPostsDefault}
-          dispatch={props.dispatch}
+          PostDefault={props.employeesPage.addPostsDefault}
+          addPost={props.addPost}
+          updateNewPost={props.updateNewPost}
         />
       </div>
     </div>

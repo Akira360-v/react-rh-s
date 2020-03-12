@@ -10,14 +10,17 @@ import SignInPage from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import AdminPage from '../Admin/index'
 import { Route, Switch } from 'react-router-dom'
+import Equipment from '../../../views/Equipment'
+import Employees from '../../../views/Employees'
 
-const Navigation = () => (
+
+const Navigation = (props) => (
   <AuthUserContext.Consumer>
     {authUser => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
   </AuthUserContext.Consumer>
 )
 
-const NavigationAuth = () => (
+const NavigationAuth = (props) => (
   <div className="app-wrapper-content">
     <div className="navbar">
       <ul>
@@ -40,7 +43,10 @@ const NavigationAuth = () => (
     </div>
     <div className="app-wrapper-contents">
       <Navbar />
-      <AdminPage />
+      <Route path="/home" render={() =><AdminPage />} />
+      <Route path="/equipment" render={() =><Equipment />} />
+      <Route path="/employees" render={() =><Employees />} />
+      <Route path="/register" render={() => <SignInPage />} />
     </div>
   </div>
 )

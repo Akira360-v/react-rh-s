@@ -1,7 +1,39 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
-export const employeesReducer = (state, action) => {
+let initialState = {
+  staff: [
+    {
+      id: 1,
+      name: 'Антонов0',
+      surname: 'Попов',
+      patronymic: 'Хзкович',
+      residence: 'Руководитель',
+      position: ' Poliglot, Donetsk'
+    },
+    {
+      id: 2,
+      name: 'Антонов1',
+      surname: 'Попов',
+      patronymic: 'Хзкович',
+      residence: 'Руководитель проекта',
+      position: ' Poliglot, Donetsk'
+    },
+    {
+      id: 2,
+      name: 'Антонов1',
+      surname: 'Попов',
+      patronymic: 'Хзкович',
+      residence: 'Руководитель проекта',
+      position: ' Poliglot, Donetsk'
+    }
+  ],
+  addPostsDefault: {
+    newPostsText: 'hello'
+  }
+}
+
+export const employeesReducer = (state = initialState , action) => {
   switch (action.type) {
     case ADD_POST:
       let newPost = {
