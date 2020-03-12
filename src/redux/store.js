@@ -2,6 +2,7 @@ import employeesReducer from './employees-reducer'
 import dialogsReducer from './dialogs-reducer'
 
 let store = {
+  // (_)state напрямую не обращяться => getState()
   _state: {
     EmployeesPage: {
       staff: [
