@@ -5,6 +5,12 @@ import * as ROUTES from '../../../constants/routes'
 import { AuthUserContext } from '../Session'
 import Navbar from '../../app/navbar/Navbar'
 
+import PasswordForgetPage from '../PasswordForget/PasswordForget'
+import SignInPage from '../SignUp/SignUp'
+import SignIn from '../SignIn/SignIn'
+import AdminPage from '../Admin/index'
+import { Route, Switch } from 'react-router-dom'
+
 const Navigation = () => (
   <AuthUserContext.Consumer>
     {authUser => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
@@ -21,6 +27,10 @@ const NavigationAuth = () => (
         <li>
           <Link to={ROUTES.ACCOUNT}>Account</Link>
         </li>
+
+        <li>
+          <Link to={ROUTES.ADMIN}>Admin</Link>
+        </li>
         <li>
           <Link to={ROUTES.LANDING}>
             <SignOutButton />
@@ -28,19 +38,22 @@ const NavigationAuth = () => (
         </li>
       </ul>
     </div>
-    <Navbar />
-    <div className="app-wrapper-content">
-      <p>asdasdasd</p>
-      <p>asdasdasd</p>
-      <p>asdasdasd</p>
-      <p>asdasdasd</p>
-      <p>asdasdasd</p>
+    <div className="app-wrapper-contents">
+      <Navbar />
+      <AdminPage />
     </div>
   </div>
 )
 
 const NavigationNonAuth = () => (
-  <div></div>
+  <div>
+    <Switch>
+      <Route exact path="/" render={() => <SignIn />} />
+      <Route path="/register" render={() => <SignInPage />} />
+      <Route path="/pw-forget" render={() => <PasswordForgetPage />} />
+      <Route path="*" render={() => <div>404 NOT FOUND</div>} />
+    </Switch>
+  </div>
 )
 
 export default Navigation
