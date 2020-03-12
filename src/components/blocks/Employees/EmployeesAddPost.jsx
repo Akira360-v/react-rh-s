@@ -7,14 +7,13 @@ import {
 
 const EmployeesAddPost = props => {
   let newPostElement = React.createRef()
-
   let addPost = () => {
-    props.dispatch(addPostActionCreator())
+    props.dispatch.dispatch(addPostActionCreator())
   }
   let onPostChenge = () => {
     let text = newPostElement.current.value
     let action = updateNewPostTextActionCreator(text)
-    props.dispatch(action)
+    props.dispatch.dispatch(action)
   }
   // one ///////////////////////
   return (
