@@ -6,7 +6,7 @@ import EmployeesAddPost from '../blocks/Employees/EmployeesAddPost'
 const Employees = props => {
   let EmployeesUzersElements = props.employeesPage.staff.map(d => (
     <EmployeesUzers
-      id={d.id}
+      key={d.id}
       name={d.name}
       surname={d.surname}
       patronymic={d.patronymic}

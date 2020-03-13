@@ -20,7 +20,7 @@ let initialState = {
       position: ' Poliglot, Donetsk'
     },
     {
-      id: 2,
+      id: 3,
       name: 'Антонов1',
       surname: 'Попов',
       patronymic: 'Хзкович',
@@ -40,7 +40,11 @@ export const employeesReducer = (state = initialState, action) => {
   // };
 
   switch (action.type) {
-    case ADD_POST: {
+    case ADD_POST: 
+      // return {
+      //   ...state
+      // }
+      
       let newPost = {
         id: 6,
         name: state.addPostsDefault.newPostsText,
@@ -54,7 +58,7 @@ export const employeesReducer = (state = initialState, action) => {
       stateCopy.staff.push(newPost)
       stateCopy.addPostsDefault.newPostsText = ''
       return stateCopy
-    }
+    
     case UPDATE_NEW_POST_TEXT: {
       let stateCopy = { ...state }
 
