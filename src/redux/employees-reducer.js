@@ -33,9 +33,14 @@ let initialState = {
   }
 }
 
-export const employeesReducer = (state = initialState , action) => {
+export const employeesReducer = (state = initialState, action) => {
+  // let stateCopy = { 
+  //   ...state,
+  //   staff: [...state.staff]
+  // };
+
   switch (action.type) {
-    case ADD_POST:
+    case ADD_POST: {
       let newPost = {
         id: 6,
         name: state.addPostsDefault.newPostsText,
@@ -44,13 +49,18 @@ export const employeesReducer = (state = initialState , action) => {
         residence: state.addPostsDefault.newPostsText,
         position: state.addPostsDefault.newPostsText
       }
-      let stateCopy = { ...state}
-      state.staff.push(newPost)
-      state.addPostsDefault.newPostsText = ''
-      return state
-    case UPDATE_NEW_POST_TEXT:
-      state.addPostsDefault.newPostsText = action.newPost
-      return state
+      let stateCopy = { ...state }
+      stateCopy.staff = [...state.staff]
+      stateCopy.staff.push(newPost)
+      stateCopy.addPostsDefault.newPostsText = ''
+      return stateCopy
+    }
+    case UPDATE_NEW_POST_TEXT: {
+      let stateCopy = { ...state }
+
+      stateCopy.addPostsDefault.newPostsText = action.newPost
+      return stateCopy
+    }
     default:
       return state
   }

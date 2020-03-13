@@ -38,9 +38,8 @@ let mapStateToProps = state => {
 }
 let mapDispatchToProps = dispatch => {
   return {
-    updateNewPost: (text) => {
+    updateNewPost: text => {
       dispatch(updateNewPostTextActionCreator(text))
-
     },
     addPost: () => {
       dispatch(addPostActionCreator())
@@ -48,7 +47,10 @@ let mapDispatchToProps = dispatch => {
   }
 }
 
-const EmployeesContainer = connect(mapStateToProps, mapDispatchToProps)(Employees)
+const EmployeesContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Employees)
 
 export default EmployeesContainer
 
