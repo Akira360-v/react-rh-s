@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import {
   sendMessageCreator,
   updateNewMessageBodyCreator
@@ -36,7 +36,7 @@ let mapStateToProps = state => {
 }
 let mapDispatchToProps = dispatch => {
   return {
-    updateNewMessageBody: (body) => {
+    updateNewMessageBody: body => {
       dispatch(updateNewMessageBodyCreator(body))
     },
     sendMessage: () => {
@@ -45,9 +45,6 @@ let mapDispatchToProps = dispatch => {
   }
 }
 
-const DialogsContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Dialogs)
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 export default DialogsContainer

@@ -44,6 +44,7 @@ export const employeesReducer = (state = initialState , action) => {
         residence: state.addPostsDefault.newPostsText,
         position: state.addPostsDefault.newPostsText
       }
+      let stateCopy = { ...state}
       state.staff.push(newPost)
       state.addPostsDefault.newPostsText = ''
       return state
