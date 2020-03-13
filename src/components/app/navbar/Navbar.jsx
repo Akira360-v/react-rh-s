@@ -1,7 +1,7 @@
 import React from 'react'
 import NavMenu from './NavMenu'
 import Uzers from './NavbarUzer'
-import * as ROUTES from '../../../constants/routes'
+// import * as ROUTES from '../../../constants/routes'
 
 
 const Navbar = () => {
@@ -9,13 +9,14 @@ const Navbar = () => {
     <div className="Navbar">
       <Uzers />
       <nav>
-        <NavMenu to={ROUTES.HOME} name="Приборная доска" />
+        {/* <NavMenu to={ROUTES.HOME} name="Приборная доска" /> */}
+        <NavMenu to="/uzers" name="Uzers" />
         <NavMenu to="/employees" name="Employees" />
         <NavMenu to="/profile" name="Profile" />
-        <NavMenu to="/equipment" name="Equipment" />
-        <NavMenu to="/statistics" name="Statistics" />
-        <NavMenu to="/settings" name="Settings" />
-        <NavMenu to="/register" name="Register" />
+        {/* <NavMenu to="/equipment" name="Equipment" /> */}
+        {/* <NavMenu to="/statistics" name="Statistics" /> */}
+        {/* <NavMenu to="/settings" name="Settings" /> */}
+        {/* <NavMenu to="/register" name="Register" /> */}
         <NavMenu to="/dialogs" name="Dialogs" />
       </nav>
     </div>
