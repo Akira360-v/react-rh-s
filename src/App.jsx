@@ -2,6 +2,7 @@ import React from 'react'
 // import React, {Component} from 'react'
 import { Route } from 'react-router-dom'
 import './assets/sass/index.sass'
+import './style.sass'
 import './App.css'
 
 import Navbar from './components/app/navbar/Navbar'
@@ -9,12 +10,14 @@ import EmployeesContainer from './components/Employees/EmployeesContainer'
 import Equipment from './views/Equipment'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
 import Profile from './components/Profile/Profile'
+import UsersContainer from './components/Users/UsersContainer'
 
 const App = () => {
   return (
     <div className="app-wrapper">
       <Navbar />
       <div className="app-wrapper-content">
+        <Route path="/uzers" render={() => <UsersContainer />} />
         <Route path="/employees" render={() => <EmployeesContainer />} />
         <Route path="/equipment" render={() => <Equipment />} />
         <Route path="/dialogs" render={() => <DialogsContainer />} />
