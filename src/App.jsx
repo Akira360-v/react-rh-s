@@ -8,6 +8,7 @@ import Navbar from './components/app/navbar/Navbar'
 import EmployeesContainer from './components/Employees/EmployeesContainer'
 import Equipment from './views/Equipment'
 import DialogsContainer from './components/Dialogs/DialogsContainer'
+import Profile from './components/Profile/Profile'
 
 const App = () => {
   return (
@@ -15,17 +16,9 @@ const App = () => {
       <Navbar />
       <div className="app-wrapper-content">
         <Route path="/employees" render={() => <EmployeesContainer />} />
-
-        <Route
-          path="/equipment"
-          render={() => (
-            <Equipment
-            // profilePage={props.store.profilePage}
-            // dispatch={props.dispatch}
-            />
-          )}
-        />
+        <Route path="/equipment" render={() => <Equipment />} />
         <Route path="/dialogs" render={() => <DialogsContainer />} />
+        <Route path="/profile" render={() => <Profile />} />
       </div>
     </div>
   )
