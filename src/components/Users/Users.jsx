@@ -5,9 +5,11 @@ import LogoUzerDefault from '../../assets/images/LogoUzerDefault.png'
 
 class Users extends React.Component {
   componentDidMount() {
-    // axios.get("http://base.rh-s.com/api/employees").then(response => {
     axios
-      .get('https://social-network.samuraijs.com/api/1.0/users')
+      // .get('https://social-network.samuraijs.com/api/1.0/users')
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+      )
       // .get('http://base.rh-s.com/api/employees')
       .then(response => {
         // debugger
@@ -19,14 +21,24 @@ class Users extends React.Component {
     // })
   }
   render() {
+    let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+    let pages = []
+    for (let i = 1; i <= pagesCount; i++) {
+      pages.push(i)
+    }
     return (
       <div className="Users">
         <div className="">
-          <span>1</span>
+          {pages.map(p => {
+            return (
+              <span className={this.props.currentPage === p && 'qwe'} onClick={() => {this.props.setCurrentPage{p}}}>{p}</span>
+            )
+          })}
+          {/* <span>1</span>
           <span>2</span>
           <span>3</span>
           <span>4</span>
-          <span>5</span>
+          <span>5</span> */}
         </div>
         {this.props.users.map(u => (
           <div className="Users__list" key={u.id}>
