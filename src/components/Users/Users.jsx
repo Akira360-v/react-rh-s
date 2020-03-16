@@ -10,7 +10,7 @@ class Users extends React.Component {
       .get('https://social-network.samuraijs.com/api/1.0/users')
       // .get('http://base.rh-s.com/api/employees')
       .then(response => {
-        debugger
+        // debugger
         this.props.setUsers(response.data.items)
       })
     // .catch(error => {
@@ -21,6 +21,13 @@ class Users extends React.Component {
   render() {
     return (
       <div className="Users">
+        <div className="">
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+        </div>
         {this.props.users.map(u => (
           <div className="Users__list" key={u.id}>
             <span>
