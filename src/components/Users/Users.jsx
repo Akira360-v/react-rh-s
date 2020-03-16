@@ -6,16 +6,30 @@ import LogoUzerDefault from '../../assets/images/LogoUzerDefault.png'
 class Users extends React.Component {
   componentDidMount() {
     axios
-      .get('https://social-network.samuraijs.com/api/1.0/users')
+      // .get('https://social-network.samuraijs.com/api/1.0/users')
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+      )
       // .get('http://base.rh-s.com/api/employees')
       .then(response => {
-        debugger
+        // debugger
         this.props.setUsers(response.data.items)
+        this.props.setTotalUsersCount(response.data.totalCount)
       })
     // .catch(error => {
     //   debugger
     //   console.error(error)
     // })
+  }
+  onPageChanged = pageNamber => {
+    this.props.setCurrentPage(pageNamber)
+    axios
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNamber}&count=${this.props.pageSize}`
+      )
+      .then(response => {
+        this.props.setUsers(response.data.items)
+      })
   }
   render() {
     let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
@@ -25,10 +39,17 @@ class Users extends React.Component {
     }
     return (
       <div className="Users">
-        {/* <div className=""> */}
-          {/* {pages.map(p => {
+        <div className="">
+          {pages.map(p => {
             return (
-              <span className={this.props.currentPage === p && 'qwe'} onClick={() => {this.props.setCurrentPage{p}}}>{p}</span>
+              <span
+                className={this.props.currentPage === p && 'qwe'}
+                onClick={e => {
+                  this.onPageChanged(p)
+                }}
+              >
+                {p}
+              </span>
             )
           })}
           {/* <span>1</span>
@@ -36,7 +57,7 @@ class Users extends React.Component {
           <span>3</span>
           <span>4</span>
           <span>5</span> */}
-        {/* </div> */} */}
+        </div>
         {this.props.users.map(u => (
           <div className="Users__list" key={u.id}>
             <span>
