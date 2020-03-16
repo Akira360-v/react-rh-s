@@ -6,12 +6,16 @@ let Users = props => {
   if (props.users.length === 0) {
     // axios.get("http://base.rh-s.com/api/employees").then(response => {
     axios
-      // .get('https://social-network.samuraijs.com/api/1.0/users')
-      .get('http://base.rh-s.com/api/employees')
+      .get('https://social-network.samuraijs.com/api/1.0/users')
+      // .get('http://base.rh-s.com/api/employees')
       .then(response => {
         debugger
 
-        props.setUsers()
+        // props.setUsers()
+      })
+      .catch(error => {
+        debugger
+        console.error(error)
       })
     // props.setUsers([
     //   {
