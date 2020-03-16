@@ -9,7 +9,7 @@ class Users extends React.Component {
       .get('https://social-network.samuraijs.com/api/1.0/users')
       // .get('http://base.rh-s.com/api/employees')
       .then(response => {
-        // debugger
+        debugger
         this.props.setUsers(response.data.items)
       })
     // .catch(error => {
