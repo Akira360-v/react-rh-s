@@ -1,34 +1,48 @@
 import React from 'react'
 // import'./User.sass'
+import * as axios from 'axios'
 
 let Users = props => {
   if (props.users.length === 0) {
-    props.setUsers([
-      {
-        id: 1,
-        photoUrl: '',
-        followed: false,
-        fullName: 'Dmitry',
-        status: 'I am a boss',
-        location: { city: 'Minsk', country: 'Belarus' }
-      },
-      {
-        id: 2,
-        photoUrl: '',
-        followed: true,
-        fullName: 'Sasha',
-        status: 'I am a boss too',
-        location: { city: 'Moscow', country: 'Russia' }
-      },
-      {
-        id: 3,
-        photoUrl: '',
-        followed: false,
-        fullName: 'Andrew',
-        status: 'I am a boss too',
-        location: { city: 'Kiev', country: 'Ukraine' }
-      }
-    ])
+    // axios.get("http://base.rh-s.com/api/employees").then(response => {
+    axios
+      .get('https://social-network.samuraijs.com/api/1.0/users')
+      // .get('http://base.rh-s.com/api/employees')
+      .then(response => {
+        debugger
+
+        // props.setUsers()
+      })
+      .catch(error => {
+        debugger
+        console.error(error)
+      })
+    // props.setUsers([
+    //   {
+    //     id: 1,
+    //     photoUrl: '',
+    //     followed: false,
+    //     fullName: 'Dmitry',
+    //     status: 'I am a boss',
+    //     location: { city: 'Minsk', country: 'Belarus' }
+    //   },
+    //   {
+    //     id: 2,
+    //     photoUrl: '',
+    //     followed: true,
+    //     fullName: 'Sasha',
+    //     status: 'I am a boss too',
+    //     location: { city: 'Moscow', country: 'Russia' }
+    //   },
+    //   {
+    //     id: 3,
+    //     photoUrl: '',
+    //     followed: false,
+    //     fullName: 'Andrew',
+    //     status: 'I am a boss too',
+    //     location: { city: 'Kiev', country: 'Ukraine' }
+    //   }
+    // ])
   }
 
   return (
