@@ -4,22 +4,29 @@ import * as axios from 'axios'
 import LogoUzerDefault from '../../assets/images/LogoUzerDefault.png'
 
 class Users extends React.Component {
+  
   componentDidMount() {
+
     axios
+    
       // .get('https://social-network.samuraijs.com/api/1.0/users')
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
-      )
-      // .get('http://base.rh-s.com/api/employees')
+      // .get(
+      //   `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+      // )
+      .get('https://base.rh-s.com/api/equipment')
+      // .get('https://rh-s.com/api/products.php')
+
       .then(response => {
         // debugger
-        this.props.setUsers(response.data.items)
-        this.props.setTotalUsersCount(response.data.totalCount)
+        console.log(response);
+        
+        // this.props.setUsers(response.data.items)
+        // this.props.setTotalUsersCount(response.data.totalCount)
       })
-    // .catch(error => {
-    //   debugger
-    //   console.error(error)
-    // })
+      // .catch(error => {
+      //   debugger
+      //   console.error(error)
+      // })
   }
   onPageChanged = pageNamber => {
     this.props.setCurrentPage(pageNamber)
