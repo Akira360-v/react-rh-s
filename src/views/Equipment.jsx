@@ -1,12 +1,14 @@
 import React from 'react'
 
-
 const Equipment = (props) => {
   return (
     <div>
-      <h1>asasas</h1>
-      <h2>qwqw</h2>
-      Equipment
+      <h1>{props.head}</h1>
+      <div className="">
+        <p>
+          {props.text}
+        </p>
+      </div>
     </div>
   )
 }

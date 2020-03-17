@@ -13,7 +13,7 @@ const Navbar = () => {
         <NavMenu to="/uzers" name="Uzers" />
         <NavMenu to="/employees" name="Employees" />
         <NavMenu to="/profile" name="Profile" />
-        {/* <NavMenu to="/equipment" name="Equipment" /> */}
+        <NavMenu to="/equipment" name="Equipment" />
         {/* <NavMenu to="/statistics" name="Statistics" /> */}
         {/* <NavMenu to="/settings" name="Settings" /> */}
         {/* <NavMenu to="/register" name="Register" /> */}

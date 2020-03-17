@@ -19,7 +19,7 @@ const App = () => {
       <div className="app-wrapper-content">
         <Route path="/uzers" render={() => <UsersContainer />} />
         <Route path="/employees" render={() => <EmployeesContainer />} />
-        <Route path="/equipment" render={() => <Equipment />} />
+        <Route path="/equipment" render={() => <Equipment head='head' text='qwe123' />} />
         <Route path="/dialogs" render={() => <DialogsContainer />} />
         <Route path="/profile" render={() => <Profile />} />
       </div>
