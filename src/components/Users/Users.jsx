@@ -10,18 +10,18 @@ class Users extends React.Component {
     axios
     
       // .get('https://social-network.samuraijs.com/api/1.0/users')
-      // .get(
-      //   `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
-      // )
-      .get('https://base.rh-s.com/api/equipment')
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+      )
+      // .get('https://base.rh-s.com/api/equipment')
       // .get('https://rh-s.com/api/products.php')
 
       .then(response => {
         // debugger
         console.log(response);
         
-        // this.props.setUsers(response.data.items)
-        // this.props.setTotalUsersCount(response.data.totalCount)
+        this.props.setUsers(response.data.items)
+        this.props.setTotalUsersCount(response.data.totalCount)
       })
       // .catch(error => {
       //   debugger
